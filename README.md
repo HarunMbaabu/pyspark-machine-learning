@@ -101,3 +101,45 @@ PySpark's pyspark.ml.classification, pyspark.ml.regression, pyspark.ml.clusterin
 These are just some of the algorithms available in pyspark.ml. Each algorithm comes with its own set of hyperparameters that you can tune to optimize the model's performance. Additionally, PySpark's ParamGridBuilder allows you to create grids of hyperparameters to perform systematic hyperparameter tuning.
 
 When using these algorithms, you typically construct a machine learning pipeline that includes data preprocessing, model training, and evaluation stages. This pipeline ensures consistent application of transformations and models to both training and testing datasets, helping to prevent data leakage and ensure reproducibility.
+
+
+**Example: Logistic Regression**
+
+
+```python 
+from pyspark.sql import SparkSession
+from pyspark.ml.feature import VectorAssembler
+from pyspark.ml.classification import LogisticRegression
+from pyspark.ml import Pipeline
+
+# Create a Spark session
+spark = SparkSession.builder.appName("LogisticRegressionExample").getOrCreate()
+
+# Load your data into a DataFrame
+data = spark.read.csv("data.csv", header=True, inferSchema=True)
+
+# Define feature columns
+feature_columns = ["feature1", "feature2", "feature3"]
+
+# Create a VectorAssembler for feature transformation
+assembler = VectorAssembler(inputCols=feature_columns, outputCol="features")
+
+# Create a LogisticRegression model
+lr = LogisticRegression(featuresCol="features", labelCol="label", maxIter=10, regParam=0.01)
+
+# Create a pipeline
+pipeline = Pipeline(stages=[assembler, lr])
+
+# Split data into training and test sets
+train_data, test_data = data.randomSplit([0.8, 0.2])
+
+# Fit the pipeline on the training data
+model = pipeline.fit(train_data)
+
+# Make predictions on the test data
+predictions = model.transform(test_data)
+
+# Close the Spark session
+spark.stop()
+
+```
