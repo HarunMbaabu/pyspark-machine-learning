@@ -64,3 +64,40 @@ PySpark's pyspark.ml.classification, pyspark.ml.regression, pyspark.ml.clusterin
 - **Multilayer Perceptron (MLP):** A feedforward neural network for classification tasks.
 
 
+### **2).Regression Algorithms:**
+
+
+- **Linear Regression:** A linear algorithm used for regression tasks.
+
+- **Decision Trees (for Regression):** Similar to classification trees, but used for predicting continuous values.
+
+- **Random Forest (for Regression):** An ensemble algorithm for regression tasks.
+
+- **Gradient-Boosted Trees (GBT for Regression):** An ensemble algorithm for regression tasks.
+
+### **3). Clustering Algorithms:**
+
+- **K-Means:** An algorithm that divides data into clusters by minimizing the variance within each cluster.
+
+- **Bisecting K-Means:** A hierarchical clustering algorithm that repeatedly bisects clusters to form a tree.
+
+### **4). Recommendation Algorithms:**
+
+- **Alternating Least Squares (ALS):** A matrix factorization technique used for collaborative filtering in recommendation systems.
+
+
+### **5).Dimensionality Reduction:**
+
+- **Principal Component Analysis (PCA):** A technique used to reduce the dimensionality of data while preserving its variance.
+
+### **6).Feature Selection:**
+
+- **Chi-Square Selector:** A method for selecting important features based on the chi-squared statistic.
+
+- **Feature Hasher:** A technique for transforming categorical features into numerical features.
+
+- **Vector Slicer:** A tool for selecting and slicing elements from a feature vector.
+
+These are just some of the algorithms available in pyspark.ml. Each algorithm comes with its own set of hyperparameters that you can tune to optimize the model's performance. Additionally, PySpark's ParamGridBuilder allows you to create grids of hyperparameters to perform systematic hyperparameter tuning.
+
+When using these algorithms, you typically construct a machine learning pipeline that includes data preprocessing, model training, and evaluation stages. This pipeline ensures consistent application of transformations and models to both training and testing datasets, helping to prevent data leakage and ensure reproducibility.
