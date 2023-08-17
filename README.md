@@ -27,7 +27,7 @@ A Transformer is an abstraction that represents a transformation applied to a Da
 An Estimator is an algorithm or model that can be trained on data to generate a Transformer. It's a machine learning algorithm that has an internal state and can be fit to data to learn a model. Examples of estimators include classification models like LogisticRegression and clustering models like KMeans.
 
 **4). Pipeline:**
-A Pipeline is a sequence of stages, where each stage can be either a Transformer or an Estimator. Pipelines allow you to assemble a sequence of data processing steps, making it easy to ensure that data transformations are consistent across training and testing sets. This is particularly useful for avoiding data leakage and maintaining code organization.
+A Pipeline is a sequence of stages, where each stage can be either a ```Transformer``` or an ```Estimator```. Pipelines allow you to assemble a sequence of data processing steps, making it easy to ensure that data transformations are consistent across training and testing sets. This is particularly useful for avoiding data leakage and maintaining code organization.
 
 **5). Parameter Grid and Hyperparameter Tuning:**
 The ParamGridBuilder class allows you to specify hyperparameter grids for hyperparameter tuning. Hyperparameter tuning involves searching through various combinations of hyperparameters to find the best-performing model.
@@ -43,4 +43,24 @@ pyspark.ml.feature contains classes for feature extraction, transformation, and 
 
 **9). Algorithms:**
 PySpark's pyspark.ml.classification, pyspark.ml.regression, pyspark.ml.clustering, and other sub-packages contain various algorithms and models for different machine learning tasks.
+
+
+```pyspark.ml``` provides a wide range of machine learning algorithms and models for various tasks, such as classification, regression, clustering, recommendation, and more. Here are some of the commonly used algorithms available in pyspark.ml:
+
+### **1). Classification Algorithms:**
+
+- **Logistic Regression:** A linear algorithm used for binary or multi-class classification.
+
+- **Decision Trees:** Tree-based algorithm that splits data into branches based on feature values to make predictions.
+
+- **Random Forest:** Ensemble of decision trees that combines multiple trees to improve predictive accuracy.
+
+- **Gradient-Boosted Trees (GBT):** An ensemble algorithm that builds multiple decision trees in a sequential manner, with each tree correcting the errors of the previous ones.
+
+- **Support Vector Machines (SVM):** Algorithms that find a hyperplane that best separates classes in a high-dimensional space.
+
+- **Naive Bayes:** A probabilistic algorithm based on Bayes' theorem used for classification tasks.
+
+- **Multilayer Perceptron (MLP):** A feedforward neural network for classification tasks.
+
 
